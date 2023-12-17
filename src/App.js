@@ -3,6 +3,7 @@ import NavigationBar from "./components/NavigationBar"
 import Intro from "./components/Intro"
 import DiscoverMovies from "./components/discover/movies"
 import UpcomingMovies from "./components/discover/upcoming"
+import Tvseries from "./components/discover/tvseries"
 
 import "./style/landingPage.css"
 
@@ -21,6 +22,10 @@ function App() {
     <div className="upcoming">
       <UpcomingMovies />
     </div>
+
+    {/* <div className="tvseries">
+      <Tvseries />
+    </div> */}
     </div>
   )
 }

@@ -2,15 +2,15 @@ import { useEffect, useState } from "react"
 import { Card, Container, Row, Col, Image } from "react-bootstrap"
 import axios from "axios"
 
-const Upcoming = () => {
-  const [movies, setMovies] = useState([])
+const Tvseries = () => {
+  const [series, setSeries] = useState([])
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/movie/upcoming`, {
+    axios.get(`${process.env.REACT_APP_BASE_URL}tv/popular`, {
       params: {
         api_key: process.env.REACT_APP_TMDB_KEY
       }
     }).then((response) => {
-      setMovies(response.data.results)
+      setSeries(response.data.results)
     })
   }, [])
 
@@ -19,22 +19,22 @@ const Upcoming = () => {
     <div>
       <Container>
         <br />
-        <h1 className="text-white">UPCOMING MOVIES</h1>
+        <h1 className="text-white">TV SERIES</h1>
         <br />
         <Row>
-          {movies.map((result, index) => {
+          {series.map((result, index) => {
             return (
-              <Col md={4} className="movieWrapper" id="upcoming" key={index}>
-                <Card className="movieImage">
-                  <Image src={`${process.env.REACT_APP_IMG_URL}/${result.poster_path}`} alt="test" className="images" />
+              <Col md={4} className="movieWrapper" id="tvseries" key={index}>
+                <Card className="seriesImage">
+                  <Image src={`${process.env.REACT_APP_IMG_URL1}/${result.poster_path}`} alt="test" className="images" />
                   <div className="bg-dark">
                     <div className="p-2 m-1 text-white">
-                      <Card.Title className="text-center">{result.title}</Card.Title>
+                      <Card.Title className="text-center">{result.name}</Card.Title>
                       <Card.Text className="text-left">
                         {result.overview}
                       </Card.Text>
                       <Card.Text className="text-left">
-                        {result.release_date}
+                        {result.first_air_date}
                       </Card.Text>
                     </div>
                   </div>
@@ -48,4 +48,4 @@ const Upcoming = () => {
   )
 }
 
-export default Upcoming
+export default Tvseries

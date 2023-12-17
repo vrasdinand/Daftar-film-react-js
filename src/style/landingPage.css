@@ -31,7 +31,20 @@
   background-size: cover;
 }
 
+.tvseries {
+  height: auto;
+  background: url("../assets/images/bg/romance.jpg");
+  background-size: cover;
+}
+
 .movieImage {
+  height: auto;
+  background-color: black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.seriesImage {
   height: auto;
   background-color: black;
   margin: 5px;
